@@ -84,3 +84,12 @@ where tournament_category='Champions League' and match_status = 'Available'
 
 --query-2
 select user_id,full_name,email from users
+
+-- query-3
+select booking_id,user_id,match_id,coalesce(payment_status,'Action Required') as systematic_status from bookings
+where payment_status is null
+
+-- query-4
+select booking_id,full_name,fixture,round(total_cost) from bookings
+inner join users using(user_id)
+inner join matches using(match_id)
