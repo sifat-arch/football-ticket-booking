@@ -84,6 +84,7 @@ where tournament_category='Champions League' and match_status = 'Available'
 
 --query-2
 select user_id,full_name,email from users
+where full_name ilike 'Tanvir%' or full_name ilike'%Haque%'
 
 -- query-3
 select booking_id,user_id,match_id,coalesce(payment_status,'Action Required') as systematic_status from bookings
